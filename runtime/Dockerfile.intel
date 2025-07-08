@@ -23,7 +23,7 @@ RUN set -eux; \
     libc6-dev libx11-dev libx11-xcb-dev; \
     
     apt-get install -y --allow-downgrades --no-install-recommends \
-        libudev1 udex \
+        libudev1 udev \
         wget ca-certificates supervisor \
         pulseaudio xserver-xorg-video-dummy \
         libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx7 libxcvt0 \
