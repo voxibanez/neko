@@ -16,12 +16,14 @@ RUN set -eux; \
     echo deb http://deb.debian.org/debian trixie main contrib non-free > /etc/apt/sources.list.d/trixie.list; \
     echo "Package: *\nPin: release n=bookworm\nPin-Priority: 700\n\nPackage: *\nPin: release n=trixie\nPin-Priority: 600" > /etc/apt/preferences.d/99-trixie; \
     apt-get update; \
+    
     #
     # intel driver + vaapi
     apt-get install -y --no-install-recommends -t trixie intel-media-va-driver-non-free libva2 vainfo \
     libc6-dev libx11-dev libx11-xcb-dev; \
     
-apt-get install -y --allow-downgrades --no-install-recommends \
+    apt-get install -y --allow-downgrades --no-install-recommends \
+        libudev1 udex \
         wget ca-certificates supervisor \
         pulseaudio xserver-xorg-video-dummy \
         libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx7 libxcvt0 \
