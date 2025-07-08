@@ -82,13 +82,16 @@ apt-get install -y --allow-downgrades --no-install-recommends \
     apt-get clean -y; \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-
 #
 # copy runtime configs
 COPY --chown=neko:neko .Xresources /home/$USERNAME/.Xresources
+COPY dbus /usr/bin/dbus
 COPY default.pa /etc/pulse/default.pa
 COPY supervisord.conf /etc/neko/supervisord.conf
+COPY supervisord.dbus.conf /etc/neko/supervisord.dbus.conf
 COPY xorg.conf /etc/neko/xorg.conf
+COPY intel/add-render-group.sh /usr/bin/add-render-group.sh
+COPY intel/supervisord.rendergroup.conf /etc/neko/supervisord/supervisord.rendergroup.conf
 
 #
 # copy runtime folders
@@ -105,6 +108,8 @@ ENV XDG_RUNTIME_DIR=/tmp/runtime-$USERNAME
 ENV NEKO_SERVER_BIND=:8080
 ENV NEKO_PLUGINS_ENABLED=true
 ENV NEKO_PLUGINS_DIR=/etc/neko/plugins/
+ENV NEKO_HWENC=VAAPI
+ENV RENDER_GID=
 
 #
 # add healthcheck
