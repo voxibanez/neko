@@ -25,7 +25,7 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends -t trixie intel-media-va-driver-non-free libva2 vainfo \
     libc6-dev libx11-dev libx11-xcb-dev; \
     
-apt-get install -y --no-install-recommends \
+apt-get install -y --allow-downgrades --no-install-recommends \
         wget ca-certificates supervisor \
         pulseaudio xserver-xorg-video-dummy \
         libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx7 libxcvt0 \
@@ -63,7 +63,7 @@ apt-get install -y --no-install-recommends \
     chown -R $USERNAME:$USERNAME /home/$USERNAME; \
     #
     # install fonts
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --allow-downgrades --no-install-recommends \
         # Emojis
         fonts-noto-color-emoji \
         # Chinese fonts
