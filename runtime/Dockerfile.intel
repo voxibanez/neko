@@ -17,7 +17,6 @@ RUN set -eux; \
     echo deb http://deb.debian.org/debian-security/ bullseye-security main contrib non-free >> /etc/apt/sources.list; \
     echo deb http://deb.debian.org/debian bullseye-updates main contrib non-free >> /etc/apt/sources.list; \
     echo deb http://deb.debian.org/debian trixie main contrib non-free > /etc/apt/sources.list.d/trixie.list; \
-    makedir -p /etc/apt/preferences.d/; \
     echo "Package: *\nPin: release n=bookworm\nPin-Priority: 700\n\nPackage: *\nPin: release n=trixie\nPin-Priority: 600" > /etc/apt/preferences.d/99-trixie; \
     apt-get update; \
     #
