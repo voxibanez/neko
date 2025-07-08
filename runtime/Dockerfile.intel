@@ -39,7 +39,7 @@ apt-get install -y --allow-downgrades --no-install-recommends \
         # gst
         gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
         gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
-        gstreamer1.0-pulseaudio; \
+        gstreamer1.0-pulseaudio gstreamer1.0-vaapi; \
     #
     # create a non-root user
     groupadd --gid $USER_GID $USERNAME; \
